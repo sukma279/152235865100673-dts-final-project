@@ -3,11 +3,38 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MovieList from './containers/MovieList';
+import MovieDetail from './containers/MovieDetail';
+import PrivateComponent from './components/PrivateComponent';
+import NoMatch from './containers/NoMatch';
+import Login from './containers/Login';
+import Register from './containers/Register';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+            <PrivateComponent>
+              <App />
+            </PrivateComponent>
+        }>
+          <Route path="/" element={<MovieList />} />
+          <Route path="detail/:id" element={<MovieDetail />} />
+        </Route>
+        <Route path="login" element={
+          <PrivateComponent loginOnly={false}>
+            <Login />
+          </PrivateComponent>} />
+        <Route path="register" element={
+          <PrivateComponent loginOnly={false}>
+            <Register/>
+          </PrivateComponent>} />
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
