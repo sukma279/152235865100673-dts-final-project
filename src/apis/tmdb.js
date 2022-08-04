@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = 'b2CpQTaTPKLLaye0NDapYJK3KUuPYZNP';
+const API_KEY = process.env.REACT_APP_GIPHY_KEY;
 const baseUrl = 'https://api.giphy.com/v1/';
 
 const tmdb = axios.create({
