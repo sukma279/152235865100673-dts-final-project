@@ -8,8 +8,15 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/navigation";
 import "./style/style.css";
+import { useNavigate } from 'react-router-dom';
 
 const PopularMovie = () => {
+    let navigate = useNavigate();
+
+    const onClickMovie = (id) => {
+        navigate(`/detail/${id}`);
+        window.scrollTo(0, 0)
+    }
 
     const [movies, setMovies] = useState([]);
 
@@ -58,6 +65,7 @@ const PopularMovie = () => {
                             <SwiperSlide id={movie.id}>
                                 <div style={{ height: 200 }}
                                     className="imageContainer"
+                                    onClick={() => onClickMovie(movie.id)}
                                     >
                                     {movie.images.fixed_height.url ? (
                                         <img

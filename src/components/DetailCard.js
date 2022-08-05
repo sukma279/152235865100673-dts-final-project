@@ -42,19 +42,13 @@ const DetailCard = ({ id_gif }) => {
                 <div className="detail-movie-poster-contain">
                     <h1>{`${movie.title ? movie.title : movie.username}`}</h1>
                     <div className="truncate">
-                        <p>{movie.slug}</p>
+                        <p>Made by {movie.username}</p>
                     </div>
                     <div className="button-group">
                         <button className="info-button">
-                        <img
-                            src="/more-information.png"
-                            alt=""
-                            className="info-icon"
-                            style={{ width: "15px" }}
-                        />
                         <span
                             className="info-button-text"
-                            style={{ paddingLeft: "15px" }}
+                            style={{ width: "20px", textAlign: "center" }}
                         >
                             More Information
                         </span>
