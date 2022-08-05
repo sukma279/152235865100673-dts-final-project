@@ -7,7 +7,6 @@ const tmdb = axios.create({
   baseURL: baseUrl, 
   params: {
     api_key: API_KEY,
-    limit: 25,
   },
 });
 
